@@ -549,6 +549,244 @@ They should not be interpreted as definitive biological evidence of cross-platfo
 
 ---
 
+
+---
+
+# Visual Results Gallery
+
+The repository contains the **actual generated output figures** from the supplied v4.3.1c run. The figures below are linked directly to the files in `outputs/figures/`, so they render on GitHub when the repository keeps the supplied project structure.
+
+## 1. Overall DSQI Dashboard
+
+<p align="center">
+  <img src="outputs/figures/dashboard.png" alt="DSQI project dashboard" width="900">
+</p>
+
+**`dashboard.png`** — consolidated view of the run, including dataset size, DSQI/error summaries, graph statistics, and major validation indicators.
+
+---
+
+## 2. Exploratory Data Analysis
+
+<p align="center">
+  <img src="outputs/figures/eda_overview.png" alt="DSQI exploratory data analysis overview" width="900">
+</p>
+
+**`eda_overview.png`** — multi-panel exploration of the sequence-quality feature space, including distributions and relationships among GC content, homopolymers, entropy, length, k-mer diversity, and error.
+
+---
+
+## 3. Model Feature Importance
+
+<p align="center">
+  <img src="outputs/figures/feature_importance.png" alt="DSQI feature importance" width="900">
+</p>
+
+**`feature_importance.png`** — compares model-derived feature importance with permutation-based importance. Homopolymer structure and GC deviation are among the dominant predictors in the supplied run.
+
+---
+
+## 4. Learning Curve and Feature Ablation
+
+<p align="center">
+  <img src="outputs/figures/learning_curve_ablation.png" alt="DSQI learning curve and feature ablation" width="900">
+</p>
+
+**`learning_curve_ablation.png`** — shows model performance as training data increases and the effect of removing individual features. The supplied run indicates a particularly large performance impact when the homopolymer feature is removed.
+
+---
+
+## 5. DSQI Validation
+
+<p align="center">
+  <img src="outputs/figures/dsqi_validation.png" alt="DSQI validation" width="900">
+</p>
+
+**`dsqi_validation.png`** — validates the relationship between the DSQI score and observed error. The three DSQI groups show progressively lower mean error from Low → Medium → High.
+
+**Observed group means in the supplied run:**
+
+| DSQI group | Mean observed error |
+|---|---:|
+| Low | 0.10892 |
+| Medium | 0.05591 |
+| High | 0.02667 |
+
+The model-derived DSQI had Spearman correlation **−0.7753** with observed error on the external EXP_C cohort.
+
+---
+
+## 6. Cross-Platform Transfer
+
+<p align="center">
+  <img src="outputs/figures/transfer_matrix.png" alt="DSQI cross-platform transfer matrix" width="900">
+</p>
+
+**`transfer_matrix.png`** — evaluates whether the DSQI/error relationship remains consistent when moving between sequencing platforms such as Illumina, Nanopore, and PacBio.
+
+---
+
+## 7. External Validation
+
+<p align="center">
+  <img src="outputs/figures/external_validation.png" alt="DSQI external validation" width="900">
+</p>
+
+**`external_validation.png`** — evaluates the DSQI relationship on the additional external cohorts included in the supplied experiment.
+
+For the supplied synthetic external cohorts, the model-derived DSQI correlations were approximately:
+
+- EXT2: **−0.7979**
+- EXT3: **−0.7808**
+
+These values demonstrate consistency within the synthetic validation framework; they should not be interpreted as independent biological validation.
+
+---
+
+## 8. Constrained-Code Benchmark
+
+<p align="center">
+  <img src="outputs/figures/constrained_benchmark.png" alt="DSQI constrained code benchmark" width="900">
+</p>
+
+**`constrained_benchmark.png`** — examines sequence error as storage constraints are satisfied and compares DSQI against observed error. This experiment is especially important for testing whether DSQI adds information beyond simple constraint feasibility.
+
+In the supplied run, DSQI showed a strong overall relationship with error, while the within-constraint-feasible subset produced only a weak additional correlation (**ρ ≈ −0.1312, p ≈ 0.0423**).
+
+---
+
+## 9. Retrieval Performance
+
+<p align="center">
+  <img src="outputs/figures/confusion_matrix.png" alt="DSQI classification confusion matrix" width="900">
+</p>
+
+**`confusion_matrix.png`** — confusion matrix for the supplied Random Forest error-risk classification experiment.
+
+The broader retrieval experiment reported:
+
+| Retrieval model | ROC-AUC | PR-AUC |
+|---|---:|---:|
+| Logistic Regression / full features | 0.9528 | 0.9753 |
+| Random Forest / full features | 0.9468 | 0.9719 |
+| DSQI alone | 0.8925 | — |
+
+The figure itself shows the class-level prediction behavior rather than the ROC/PR curves.
+
+---
+
+## 10. Clustering Analysis
+
+<p align="center">
+  <img src="outputs/figures/clustering.png" alt="DSQI sequence clustering" width="900">
+</p>
+
+**`clustering.png`** — K-Means model selection and cluster-level error behavior. The supplied run selected **k = 6** as the best clustering configuration according to silhouette analysis.
+
+---
+
+## 11. Sequence Similarity Graph
+
+<p align="center">
+  <img src="outputs/figures/graph_analysis.png" alt="DSQI similarity graph analysis" width="900">
+</p>
+
+**`graph_analysis.png`** — graph-based analysis of sequence similarity, including degree distribution, influential nodes, and community-level error behavior.
+
+The supplied graph sample contained **846 nodes**, **2,390 edges**, and **12 detected communities**. High-error sequences showed statistically significant community structure in the supplied experiment.
+
+---
+
+## 12. Explainability — Global SHAP View
+
+<p align="center">
+  <img src="outputs/figures/shap_summary.png" alt="DSQI SHAP summary" width="900">
+</p>
+
+**`shap_summary.png`** — global explainability view showing how important features influence model predictions across the sequence population.
+
+---
+
+## 13. Explainability — Worst Sequence
+
+<p align="center">
+  <img src="outputs/figures/shap_waterfall_worst.png" alt="DSQI SHAP waterfall for worst sequence" width="900">
+</p>
+
+**`shap_waterfall_worst.png`** — local explanation for a high-error sequence, showing which feature values push the predicted error upward or downward.
+
+---
+
+## 14. Sequence-Level Explanation
+
+<p align="center">
+  <img src="outputs/figures/explain_worst.png" alt="DSQI worst sequence explanation" width="900">
+</p>
+
+**`explain_worst.png`** — complementary sequence-level explanation of the worst-performing example and the contribution of its major DSQI-5 components.
+
+---
+
+## 15. Sensitivity / Robustness Analysis
+
+<p align="center">
+  <img src="outputs/figures/sensitivity.png" alt="DSQI sensitivity analysis" width="900">
+</p>
+
+**`sensitivity.png`** — evaluates how DSQI ranking behaves under perturbations of the calibration conditions.
+
+The supplied experiment used **80 sensitivity trials** and reported:
+
+- Base Spearman ρ: **−0.7786**
+- Mean Spearman ρ: **−0.7092**
+- Spearman standard deviation: **0.0521**
+- Mean Kendall τ: **0.7588**
+- Minimum Kendall τ: **0.583**
+
+---
+
+## 16. ECC Overhead Estimate
+
+<p align="center">
+  <img src="outputs/figures/ecc_overhead.png" alt="DSQI error correction overhead estimate" width="900">
+</p>
+
+**`ecc_overhead.png`** — heuristic mapping from DSQI/error groups to Reed–Solomon-style error-correction overhead.
+
+The supplied run estimated:
+
+| DSQI group | Mean error | Estimated ECC overhead |
+|---|---:|---:|
+| Low | 0.10892 | 42.67% |
+| Medium | 0.05591 | 26.67% |
+| High | 0.02667 | 16.00% |
+
+**Important:** these ECC values are heuristic estimates, not experimentally demonstrated synthesis/sequencing correction rates.
+
+---
+
+## Figure-to-Research Map
+
+| Figure | Main research purpose |
+|---|---|
+| `dashboard.png` | Overall system/run summary |
+| `eda_overview.png` | Feature-space and data exploration |
+| `feature_importance.png` | Predictor importance |
+| `learning_curve_ablation.png` | Data scaling and feature contribution |
+| `dsqi_validation.png` | DSQI ↔ observed error validation |
+| `transfer_matrix.png` | Cross-platform robustness |
+| `external_validation.png` | External-cohort validation |
+| `constrained_benchmark.png` | Added value beyond constraints |
+| `confusion_matrix.png` | Error-risk classification |
+| `clustering.png` | Unsupervised sequence structure |
+| `graph_analysis.png` | Similarity/community structure |
+| `shap_summary.png` | Global explainability |
+| `shap_waterfall_worst.png` | Local model explanation |
+| `explain_worst.png` | Sequence-level diagnostic explanation |
+| `sensitivity.png` | Robustness of DSQI ranking |
+| `ecc_overhead.png` | Storage/error-correction implications |
+
+
 # Part III — Extended Feature Framework
 
 Part III expands the feature space substantially.
