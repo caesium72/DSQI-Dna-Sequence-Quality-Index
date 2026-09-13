@@ -1,0 +1,4 @@
+source,gc_range,homopolymer_max,note
+"Erlich & Zielinski 2017 (DNA Fountain), Science 355(6328):950-954",45-55%,3,hard pass/fail screen before synthesis
+This notebook -- Constrained-Code Benchmark (Sec 25),45-55%,3,"same hard filter, used as DSQI's baseline comparator"
+This notebook -- DSQI (Sec 17),continuous Gaussian penalty around GC_OPT (dev-derived),continuous logistic penalty around HP_T (dev-derived),soft/continuous generalization of the hard filter -- see rho comparison above

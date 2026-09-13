@@ -1,0 +1,3 @@
+model,roc_auc
+LR_binary_high,0.9528328184368454
+RF_binary_high,0.9458334073127141

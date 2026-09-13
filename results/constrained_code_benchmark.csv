@@ -1,0 +1,4 @@
+metric,rho,p,n
+binary pass_all (point-biserial),-0.15127,0.0,9751
+DSQI overall (spearman),-0.77136,0.0,9751
+DSQI within constraint-passing subset,-0.1312,0.04229,240

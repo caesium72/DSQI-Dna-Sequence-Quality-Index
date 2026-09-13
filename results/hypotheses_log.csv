@@ -1,0 +1,7 @@
+hypothesis,test,effect,p,conclusion
+Higher GC deviation -> higher error,"Spearman(gc_deviation,error)",-0.012008883978473337,0.04448907427820893,supported
+Longer homopolymers -> higher error,MannWhitneyU(high>=4 vs <=3),0.6082994240441724,0.0,supported
+Lower entropy -> higher error,"Spearman(entropy,error)",-0.5651533106033937,0.0,supported
+Error differs across platforms,Kruskal-Wallis,0.16866796558454233,0.0,supported
+High-error sequences cluster in graph communities,Kruskal-Wallis across communities,,7.424013947471897e-09,supported
+High DSQI -> lower observed error (external),"Spearman(DSQI_model_derived, error) on EXP_C",-0.7753445333013401,0.0,supported

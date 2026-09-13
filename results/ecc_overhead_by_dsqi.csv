@@ -1,0 +1,4 @@
+dsqi_group,mean_error,rs_correctable_symbols,est_overhead_pct
+Low,0.10892387948859684,32,42.67
+Medium,0.055912154537964186,20,26.67
+High,0.026671038915732026,12,16.0

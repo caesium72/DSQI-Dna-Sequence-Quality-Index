@@ -1,0 +1,4 @@
+file,source,size_bytes,purpose,checksum_md5
+dna_storage_shard0.fa,synthetic_fallback,1771747,development+validation,46d3b2cdb34acec2d6874f55a58b9d69
+dna_storage_shard1.fa,synthetic_fallback,1772333,development+validation,41c621f6d0b89d1fccdde7bf7e5d14e4
+dna_storage_shard2.fa,synthetic_fallback,1773344,development+validation,d233a5f79c6892ab81bfc1805f07e5a6

@@ -1,0 +1,156 @@
+{
+  "seed": 42,
+  "data_source": "synthetic_fallback",
+  "env": {
+    "python": "3.13.15",
+    "pyspark": "3.5.1",
+    "java": "21.0.12",
+    "ram_gb": 13.6,
+    "disk_free_gb": 69.0
+  },
+  "n_final": 28000,
+  "class_thresholds_tercile": [
+    0.0313263172795638,
+    0.06755609045415248
+  ],
+  "dsqi_params": {
+    "gc_opt": 0.500533033249632,
+    "hp_threshold": 4.0,
+    "len_median": 150.0,
+    "sig_len": 6.986961110279236
+  },
+  "dsqi_weights": {
+    "equal": {
+      "gc": 0.2,
+      "hp": 0.2,
+      "ent": 0.2,
+      "kmer": 0.2,
+      "len": 0.2
+    },
+    "statistical": {
+      "gc": 0.2568532352545784,
+      "hp": 0.27338811335562585,
+      "ent": 0.2577166682902463,
+      "kmer": 0.14915264765766642,
+      "len": 0.06288933544188295
+    },
+    "model_derived": {
+      "gc": 0.14860024779826383,
+      "hp": 0.392834651538943,
+      "ent": 0.4063095952051849,
+      "kmer": 0.035924771970829855,
+      "len": 0.01633073348677849
+    }
+  },
+  "primary_scheme": "model_derived",
+  "graph_summary": {
+    "nodes": 846,
+    "edges": 2390,
+    "density": 0.0067,
+    "connected_components": 1,
+    "largest_cc_frac": 1.0,
+    "communities_found": 12,
+    "kruskal_community_error_p": 7.424013947471897e-09
+  },
+  "figures": [
+    "clustering.png",
+    "confusion_matrix.png",
+    "dashboard.png",
+    "dsqi_validation.png",
+    "eda_overview.png",
+    "explain_worst.png",
+    "feature_importance.png",
+    "graph_analysis.png",
+    "learning_curve_ablation.png",
+    "transfer_matrix.png"
+  ],
+  "extensions": {
+    "external_datasets": [
+      "EXT2_aegis_like",
+      "EXT3_yerlich_like"
+    ],
+    "external_val_primary": [
+      {
+        "dataset": "EXT2_aegis_like",
+        "scheme": "model_derived",
+        "n": 9000,
+        "spearman": -0.7979,
+        "p_value": 0.0,
+        "ci_low": -0.8053,
+        "ci_high": -0.7903
+      },
+      {
+        "dataset": "EXT3_yerlich_like",
+        "scheme": "model_derived",
+        "n": 8000,
+        "spearman": -0.7808,
+        "p_value": 0.0,
+        "ci_low": -0.7892,
+        "ci_high": -0.7721
+      }
+    ],
+    "constrained_benchmark": [
+      {
+        "metric": "binary pass_all (point-biserial)",
+        "rho": -0.1513,
+        "p": 0.0,
+        "n": 9751
+      },
+      {
+        "metric": "DSQI overall (spearman)",
+        "rho": -0.7714,
+        "p": 0.0,
+        "n": 9751
+      },
+      {
+        "metric": "DSQI within constraint-passing subset",
+        "rho": -0.1312,
+        "p": 0.0423,
+        "n": 240
+      }
+    ],
+    "ecc_overhead": [
+      {
+        "dsqi_group": "Low",
+        "mean_error": 0.10892387948859684,
+        "rs_correctable_symbols": 32,
+        "est_overhead_pct": 42.67
+      },
+      {
+        "dsqi_group": "Medium",
+        "mean_error": 0.055912154537964186,
+        "rs_correctable_symbols": 20,
+        "est_overhead_pct": 26.67
+      },
+      {
+        "dsqi_group": "High",
+        "mean_error": 0.026671038915732026,
+        "rs_correctable_symbols": 12,
+        "est_overhead_pct": 16.0
+      }
+    ],
+    "shap_top_features": [
+      "homopolymer_max",
+      "gc_deviation",
+      "entropy",
+      "gc_content",
+      "uniq3_ratio"
+    ],
+    "sensitivity": {
+      "n_trials": 80.0,
+      "base_rho": -0.7786281454967331,
+      "rho_mean": -0.7091529415872404,
+      "rho_std": 0.05214367219172062,
+      "min_tau": 0.5829580831300638,
+      "mean_tau": 0.7587598838809267
+    },
+    "unit_tests_passed": true,
+    "streaming_demo": {
+      "ok": true,
+      "batches": 3
+    },
+    "mlflow_logged_runs": 0,
+    "interactive_dashboard": true,
+    "worst_sequence_id": "S02067"
+  }
+}

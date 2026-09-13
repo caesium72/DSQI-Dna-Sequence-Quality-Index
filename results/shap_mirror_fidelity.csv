@@ -1,0 +1,3 @@
+model,r2,mae
+sklearn_SHAP_mirror,0.562042899178522,0.02563421705917262
+spark_RandomForest_reference,0.7637336486870352,
